@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>实时动态</title>
+    <script type="text/javascript" src="/static/echarts.min.js"></script>
+
+    <script type="text/javascript" src="/static/echarts-wordcloud.min.js"></script>
+    <script type="text/javascript" src="/static/maps/china.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/grid.css" rel="stylesheet">
+  </head>
+  <body>
+
+  <img src="/static/imgs/timg.jpg" alt="" style="width: 100%;height: 450px">
+  <span style="color: #666;margin-left: 25rem;">截至 {{ modifyTime }} 全国数据统计</span>
+    <div class="container-fluid ">
+      <div class="row">
+        <div class="col-md-2 col-md-offset-2" style="border-left: none;">
+            <b>较昨日
+                <em style="color: rgb(247, 76, 49);">{{currentConfirmedIncr}}</em>
+            </b>
+            <strong style="color: rgb(247, 76, 49);">{{ currentConfirmedCount }}</strong>
+            <span>现存确诊</span>
+        </div>
+        <div class="col-md-2">
+            <b>较昨日<em style="color: rgb(247, 130, 7);">{{ seriousIncr }}</em></b>
+            <strong style="color: rgb(247, 130, 7);">{{ seriousCount }}</strong>
+            <span>现存重症</span>
+        </div>
+        <div class="col-md-2" style="border-right: none;">
+            <b>较昨日<em style="color: rgb(40, 183, 163);">{{ curedIncr }}</em></b>
+            <strong style="color: rgb(40, 183, 163);">{{ curedCount }}</strong>
+            <span>累计治愈</span>
+        </div>
+        <div class="col-md-2">
+            <b>较昨日<em style="color: rgb(93, 112, 146);">{{ deadIncr }}</em></b>
+            <strong style="color: rgb(93, 112, 146);">{{ deadCount }}</strong>
+            <span>累计死亡</span>
+        </div>
+
+      </div>
+    </div>
+
+     <ul>
+        <li>病毒：SARS-CoV-2，其导致疾病命名 COVID-19</li>
+        <li>传染源：新冠肺炎的患者。无症状感染者也可能成为传染源</li>
+        <li>传播途径：经呼吸道飞沫、接触传播是主要的传播途径。气溶胶传播和消化道等传播途径尚待明确</li>
+        <li>易感人群：人群普遍易感。老年人及有基础疾病者感染后病情较重，儿童及婴幼儿也有发病</li>
+        <li>潜伏期：一般为 3～7 天，最长不超过 14 天，潜伏期内可能存在传染性，其中无症状病例传染性非常罕见</li>
+        <li>宿主：野生动物，可能为中华菊头蝠</li>
+    </ul>
+    <div id="map" style="width:1000px; height:500px;margin:0 auto;margin-bottom: 2rem;"></div>
+    <div id="confirm_line" style="width:1000px; height:500px;margin:0 auto;"></div>
+    <div id="cure_line" style="width:1000px; height:500px;margin:0 auto;margin-bottom: 2rem;"></div>
+    <div id="word_cloud" style="width:1000px; height:500px;margin:0 auto;margin-bottom: 2rem;"></div>
+  <script type="text/javascript" src="/static/chart.js"></script>
+  </body>
+</html>
